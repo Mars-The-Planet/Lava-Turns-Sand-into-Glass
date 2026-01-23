@@ -4,7 +4,7 @@ import com.mars.lavasand.LavaSandConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -51,7 +51,7 @@ public abstract class MixinMinecraft extends BlockBehaviour implements Fallable 
     private static boolean isOnSandList(Block block){
         for (String sand : LavaSandConfig.blocks_to_glass){
             try {
-                if(block.equals(BuiltInRegistries.BLOCK.getValue(ResourceLocation.parse(sand)))){
+                if(block.equals(BuiltInRegistries.BLOCK.getValue(Identifier.parse(sand)))){
                     return true;
                 }
             }
